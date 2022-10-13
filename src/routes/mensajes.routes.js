@@ -39,7 +39,7 @@ routerMensajes.get('/login', (req, res)=> {
 routerMensajes.get('/loginSession', async (req, res)=> {
     const { username } = req.query
     let USUARIO = await ApiUsuarios.getUsuario(username);
-    if (USUARIO === undefined) {
+    if (!USUARIO) {
         return res.redirect('/login');
     }
 
