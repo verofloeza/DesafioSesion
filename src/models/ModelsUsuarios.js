@@ -10,9 +10,9 @@ class ModelsUsuarios{
     async getUsuario(usuario){
         try {
             await mongoose.connect(strConn);
-            objs = await usuariosModel.find({username: { $eq: usuario }});
-            console.log('find:', objs[0].username)
-            return objs[0].username;
+            objs = await usuariosModel.findOne({username: { $eq: usuario }});
+            console.log('find:', objs)
+            return objs;
            
           } catch (error) {
             console.log(error)

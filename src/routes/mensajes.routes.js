@@ -40,7 +40,8 @@ routerMensajes.get('/loginSession', async (req, res)=> {
     const { username } = req.query
     let USUARIO = await ApiUsuarios.getUsuario(username);
     if (!USUARIO) {
-        return res.redirect('/login');
+        res.redirect('/login');
+        return 
     }
 
     req.session.user = username;
